@@ -48,10 +48,10 @@ public class CursomcApplication implements CommandLineRunner {
 	private EnderecoRepository endereco;
 	@Autowired
 	private PedidoRepository pedidoRepository;
-//	@Autowired
-//	private PagamentoRepository pagamentoRepository;
-//	@Autowired
-//	private ItemPedidoRepository itemPedidoRepository;
+	@Autowired
+	private PagamentoRepository pagamentoRepository;
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -118,7 +118,7 @@ public class CursomcApplication implements CommandLineRunner {
 		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));
 
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2));
-//		pagamentoRepository.saveAll(Arrays.asList(pagto1, pagto2));
+		pagamentoRepository.saveAll(Arrays.asList(pagto1, pagto2));
 		
 		ItemPedido ip1 = new ItemPedido(ped1, p1, 0.00, 1, 2000.00);
 		ItemPedido ip2 = new ItemPedido(ped1, p3, 0.00, 2, 80.00);
@@ -126,12 +126,11 @@ public class CursomcApplication implements CommandLineRunner {
 
 		ped1.getItens().addAll(Arrays.asList(ip1, ip2));
 		ped2.getItens().addAll(Arrays.asList(ip3));
+		p1.getItens().addAll(Arrays.asList(ip1));
+		p2.getItens().addAll(Arrays.asList(ip3));
+		p3.getItens().addAll(Arrays.asList(ip2));
 
-//		p1.getItens().addAll(Arrays.asList(ip1));
-//		p2.getItens().addAll(Arrays.asList(ip3));
-//		p3.getItens().addAll(Arrays.asList(ip2));
-
-//		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));	
+		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));	
 	}
 
 }

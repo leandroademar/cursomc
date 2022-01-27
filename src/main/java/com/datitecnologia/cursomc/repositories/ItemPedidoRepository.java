@@ -2,10 +2,10 @@ package com.datitecnologia.cursomc.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.datitecnologia.cursomc.domain.Pagamento;
+import com.datitecnologia.cursomc.domain.ItemPedido;
 
 
 @Repository
-public interface ItemPedidoRepository extends JpaRepository<Pagamento, Integer> {
+public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Integer> {
 
 }
